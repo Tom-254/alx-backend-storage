@@ -1,0 +1,22 @@
+#!/bin/bash
+allThreads=("exercise.py" "web.py")
+
+mkdir -p "0x02-redis_basic"
+
+for t in ${allThreads[@]}; do
+
+    if [[ $t == *".py"* ]]; then
+        echo -e "#!/usr/bin/env python3\n" > "./0x02-redis_basic/$t" && chmod +x "./0x02-redis_basic/$t"
+    else
+        # echo -e "#!/usr/bin/node\n" > "./0x02-redis_basic/$t"
+        touch "./0x02-redis_basic/$t"
+    fi
+done
+
+echo -e "# ALX Programme Project: 0x02. Redis basic" > "./0x02-redis_basic/README.md"
+
+echo -e "#!/bin/bash\ngit add . && git commit -m '0x02. Redis basic' && git push"  > "./0x02-redis_basic/correction" && chmod +x "./0x02-redis_basic/correction"
+
+cp "../alx-higher_level_programming/0x05-python-exceptions/clean_up_corrections" "./0x02-redis_basic/"
+
+cd ./0x02-redis_basic
